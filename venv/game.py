@@ -15,11 +15,13 @@ def main():
             if column < 0 or column >= game.field_size:
                 raise FieldIndexError
       except ValueError:
-    print('Буквы вводить нельзя. Только числа.')
-    print('Пожалуйста, введите значения для строки и столбца заново.')
-    continue
-        else:
-            break
+        except Exception as e:
+            print(f'Возникла ошибка: {e}')
+            print('Буквы вводить нельзя. Только числа.')
+            print('Пожалуйста, введите значения для строки и столбца заново.')
+            continue
+                else:
+                    break
 
     game.make_move(row, column, 'X')
     print('Ход сделан!')
